@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20161105083914) do
 
-  create_table "daily_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "daily_rates", force: :cascade do |t|
     t.date     "date"
-    t.float    "rate",       limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["date"], name: "index_daily_rates_on_date", using: :btree
+    t.float    "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_daily_rates_on_date"
   end
 
 end
