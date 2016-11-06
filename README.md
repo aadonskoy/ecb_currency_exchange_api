@@ -1,4 +1,4 @@
-# ECP Daily Exchange Rates API
+# ECB Daily Exchange Rates API
 
 Simple api service for convertation USD to EUR for selected date.
 
@@ -20,4 +20,9 @@ Just type commands in the terminal:
 
     curl http://localhost:3000/api/v1/rates/2016-11-06?amount=100
 
-It will response with json data (amount of usd).
+* Response with json data (amount of usd) and `200` status code
+  in case everything is ok.
+* Response with `422` and error message in case date is in incorrect
+  format.
+* Response with `404` in case date is before 2000-01-01 (it is not
+  support dates before 2000 year).
