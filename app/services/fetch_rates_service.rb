@@ -26,7 +26,7 @@ class FetchRatesService
       end
     end
 
-    def request_url(from_date, to_date)
+    def request_url(from_date, to_date = nil)
       start_period = from_date.strftime('%Y-%m-%d')
 
       url = "https://sdw-wsrest.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=#{start_period}"
@@ -54,7 +54,7 @@ class FetchRatesService
 
     def row_to_hash(row)
       {
-        date: row.try(:[], 'ObsDimension').try(:[], 'value').to_date,
+        date: row.try(:[], 'ObsDimension').try(:[], 'value').try(:to_date),
         rate: row.try(:[], 'ObsValue').try(:[], 'value').to_f
       }
     end

@@ -22,3 +22,5 @@
 
 # Ignore test coverage information directory
 coverage
+
+.DS_Store
