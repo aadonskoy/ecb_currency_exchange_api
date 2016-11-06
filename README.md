@@ -1,24 +1,23 @@
-# README
+# ECP Daily Exchange Rates API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple api service for convertation USD to EUR for selected date.
 
-Things you may want to cover:
+## Install and run server
+For install it update DailyRates and run server just type in your terminal:
 
-* Ruby version
+    bundle install
+    rake db:create db:migrate
+    rake ecb_currency_exchange_api:fetch
+    rails server
 
-* System dependencies
+## For testing
+Just type commands in the terminal:
 
-* Configuration
+    bundle install
+    rspec
 
-* Database creation
+## How it work
 
-* Database initialization
+    curl http://localhost:3000/api/v1/rates/2016-11-06?amount=100
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It will response with json data (amount of usd).
